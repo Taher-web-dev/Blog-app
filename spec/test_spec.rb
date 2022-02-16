@@ -1,5 +1,9 @@
 require "rails_helper"
 RSpec.describe "Hello", type: :request do
+  it"If response status was correct." do
+    get "/"
+    expect(response).to have_http_status(:ok)
+  end
   it"If a correct template was rendered" do
     get "/"
     expect(response).to render_template(:index)
@@ -10,6 +14,12 @@ RSpec.describe "Hello", type: :request do
   end
 end
 RSpec.describe "Users", type: :request do
+  it"If response status was correct." do
+    get "/users"
+    expect(response).to have_http_status(:ok)
+    get "/users/11"
+    expect(response).to have_http_status(:ok)
+  end
   it"If a correct template was rendered" do
     get "/users"
     expect(response).to render_template(:index)
@@ -24,6 +34,12 @@ RSpec.describe "Users", type: :request do
   end
 end
 RSpec.describe "Posts", type: :request do
+  it"If response status was correct." do
+    get "/users/17/posts"
+    expect(response).to have_http_status(:ok)
+    get "/users/11/posts/5"
+    expect(response).to have_http_status(:ok)
+  end
   it "If a correct template was rendered" do
     get "/users/17/posts"
     expect(response).to render_template(:index)
