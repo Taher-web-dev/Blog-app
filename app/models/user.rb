@@ -1,3 +1,5 @@
 class User < ApplicationRecord
-  has_many :posts, :comments, :like
+  has_many :posts
+  has_many :comments
+  has_many :like
 end
