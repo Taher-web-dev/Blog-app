@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  def called current_user
+  def called(_current_user)
     User.first
   end
 end

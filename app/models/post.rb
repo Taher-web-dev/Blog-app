@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :user 
+  belongs_to :user
   has_many :comments
   has_many :likes
 
@@ -8,8 +8,10 @@ class Post < ApplicationRecord
   end
 
   after_save :update_post_counter
-  private 
+
+  private
+
   def update_post_counter
     User.increment!(:posts_counter)
-  end 
+  end
 end
