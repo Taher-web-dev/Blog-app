@@ -1,0 +1,12 @@
+<% url = user.photo %>
+<% name = user.name %>
+<% post_nbr = user.posts_counter %>
+<div class='user_card'>
+  <div class='image_wraper'>
+    <img src=<%= url %> alt='user_image' class='image-user'>
+  </div>
+  <div class='user_data'>
+    <p class='user_name'> <%= name %> </p>
+    <span class='post_nbr'> Number of posts: <%= post_nbr %> </span>
+  </div>
+</div>

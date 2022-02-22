@@ -1,1 +1,3 @@
-<p> list of all users </p>
+<% @users.each do |user| %>
+    <%= render partial: "user_card/user", locals: {user: user, post_nbr: user[:posts_counter]} %><br>
+<% end %>
