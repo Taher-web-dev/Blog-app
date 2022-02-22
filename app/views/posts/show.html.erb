@@ -1,1 +1,10 @@
-<p> Here is post <%= params[:id] %>for given user </p>
+<div class='post-description'>
+  <div class='post-wrapper'>
+    <div class='post-detail'>
+      <p class='post-order'> Post #1 by <%= @post.user.name %> </p>
+      <p class='post-stats'> Comments:<%= @post.comments_counter %>, Likes:<%= @post.likes_counter %> </p>
+    </div>
+    <p class='post-text'> <%= @post.text %> </p>
+  </div>
+  <%= render partial:'comment_card/comment', locals: {comments: @post.comments} %>
+</div>

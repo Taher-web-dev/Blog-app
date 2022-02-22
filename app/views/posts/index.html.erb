@@ -1,1 +1,10 @@
-<p> Here is a list of posts and interactions for given user </p>
+<div class='all-posts-user'>
+  <%= render partial:'user_card/user' , locals: {user: @user} %>
+  <% @posts.each_with_index do |pst, order| %>
+    </br>
+    <% post_id = '/users/' + params[:user_id] + '/posts/' + pst.id.to_s %>
+    <%= render partial:'post_card/post', locals: {post: pst, nbr: order + 1, link: post_id } %>
+    <%= render partial:'comment_card/comment' , locals: {comments: pst.comments} %>
+  <% end %>
+  <button type=submit class='bt'>Pagination </button>
+</div>

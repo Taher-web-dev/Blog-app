@@ -1,1 +1,11 @@
-<p>Here is a profile of <%= params[:id] %> user</p>
+<div class='user'>
+  <%= render partial:'user_card/user', locals: {user:@user} %>
+  <div class='bio-card'>
+    <p class='bio-tag'>Bio</p>
+    <p class='bio-text'> <%= @user[:bio] %> </p>
+  </div>
+  <% @recent_post.each_with_index do |pst, order| %>
+    <%= render partial: 'post_card/post', locals: {post: pst, nbr: order+1, link: ''} %> </br>
+  <% end %>
+  <button type=submit class='bt'> <a href='<%= params[:id] %>/posts' class='bt-title'> See all posts </a></button>
+</div>

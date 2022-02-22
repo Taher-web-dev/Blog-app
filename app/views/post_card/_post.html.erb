@@ -1,0 +1,14 @@
+<% text = post.text %>
+<% list_text = text.split(' ') %>
+<% text_length = list_text.length %>
+<% threshold = [0.5 * text_length,10].max %>
+<% used_text = list_text[0..threshold.to_i].join(' ') %>
+<% comments = post.comments_counter %>
+<% likes = post.likes_counter %>
+<a href='<%= link %>' class='post-link'>
+  <div class='post-card'>
+    <p class='post-order'>Post #<%= nbr %> </p>
+    <p class='post-text'> <%= used_text %>...</p>
+    <span class='post-stats'>Comments:<%= comments %>, Likes:<%= likes %></span>
+  </div>
+</a>
