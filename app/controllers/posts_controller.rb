@@ -16,8 +16,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    current_user = User.find_by(id: params[:current_user])
-    new_post = Post.new(user: current_user, **params.require(:post).permit(:title, :text))
+    this_user = User.find_by(id: params[:current_user])
+    new_post = Post.new(user: this_user, **params.require(:post).permit(:title, :text))
     respond_to do |format|
       format.html do 
         if new_post.save
