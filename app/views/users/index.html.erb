@@ -1,1 +1,5 @@
-<p> list of all users </p>
+<div class='all-users'>
+  <% @users.each do |user| %>
+    <%= render partial: "user_card/user", locals: {user: user} %><br>
+  <% end %>
+</div>
