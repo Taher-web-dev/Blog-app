@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
           end
         else
           flash.now[:error] = 'Error: Comment could not be saved'
+          render :new, locals: {comment: comment}
         end
       end
     end
