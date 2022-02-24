@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :likes
+  validates: title, presence: true, length: { in: 1..250 }
+  validates: comments_counter, numericality { greater_than 0}
+  validates: likes_counter, numericality { greater_than 0}
 
   def five_most_recent_comment
     Comment.order(created_at: :desc).limit(5)
