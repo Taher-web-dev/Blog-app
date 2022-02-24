@@ -1,8 +1,4 @@
-<% flash.each do |name, msg| %>
-  <div class="alert alert-danger" role="alert">
-    <%= msg %>
-  </div>
-<% end %>
+<%= render "flash/flash" %>
 <h1> Add new post </h1>
 <%= form_with model: post, url: user_posts_path, method: :post, local: true, scope: :post do |f| %>
   <div>
