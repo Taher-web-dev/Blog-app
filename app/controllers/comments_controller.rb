@@ -16,15 +16,16 @@ class CommentsController < ApplicationController
       format.html do
         if comment.save
           flash[:success] = 'Comment saved successfully'
+          begin
+            redirect_to "/users/#{user_id}/posts/#{comment.id}"
+          rescue StandardError
+            redirect_to "/users/#{user_id}/posts/#{post_id}"
+          end
         else
-          flash.now[:error] = 'Error: Comment could not be saved'
+          flash.now[:danger] = 'Error: Comment could not be saved'
+          render :new, locals: { comment: }
         end
       end
-    end
-    begin
-      redirect_to "/users/#{user_id}/posts/#{comment.id}"
-    rescue StandardError
-      redirect_to "/users/#{user_id}/posts/#{post_id}"
     end
   end
 end

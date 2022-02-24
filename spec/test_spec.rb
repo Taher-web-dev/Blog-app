@@ -10,7 +10,7 @@ RSpec.describe 'Hello', type: :request do
   end
   it 'If the response body includes correct placeholder text.' do
     get '/'
-    expect(response.body).to include('Here is a number of posts  for each username')
+    expect(response.body).to include(/Number of posts:(\d)*/)
   end
 end
 RSpec.describe 'Users', type: :request do
