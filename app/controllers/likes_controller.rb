@@ -5,8 +5,11 @@ class LikesController < ApplicationController
     user_id = params[:user_id]
     unless this_user.likes.find_by(post_id: current_post)
       new_like = Like.new(user: this_user, post: current_post)
-      new_like.save
+       if new_like.save
+        flash[:success] = 'New like added successfully'
+        redirect_to "/users/#{user_id}/posts/#{current_post}"
+       end
     end
-    redirect_to "/users/#{user_id}/posts/#{current_post}"
+    
   end
 end

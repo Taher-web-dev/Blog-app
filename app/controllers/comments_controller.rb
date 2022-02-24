@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
             redirect_to "/users/#{user_id}/posts/#{post_id}"
           end
         else
-          flash.now[:error] = 'Error: Comment could not be saved'
+          flash.now[:danger] = 'Error: Comment could not be saved'
           render :new, locals: {comment: comment}
         end
       end

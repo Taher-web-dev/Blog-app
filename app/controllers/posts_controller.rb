@@ -29,7 +29,7 @@ class PostsController < ApplicationController
             redirect_to user_posts_path
           end
         else
-          redirect_to '/users/id/posts/new', notice: "Post could not be saved"
+          redirect_to '/users/id/posts/new', danger: "Post could not be saved"
         end
       end
     end
