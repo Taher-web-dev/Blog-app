@@ -11,6 +11,4 @@ class User < ApplicationRecord
   def three_recents_posts
     posts.order(created_at: :desc).limit(3)
   end
-  
-  
 end
