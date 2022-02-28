@@ -5,10 +5,9 @@ class CreatePost < ActiveRecord::Migration[7.0]
       t.string :text
       t.integer :comments_counter
       t.integer :likes_counter
-      t.integer :authorid
+
 
       t.timestamps
     end
-    add_index :posts, :authorid
   end
 end
