@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
     post_id = params[:post_id]
     user_id = params[:user_id]
     current_post = Post.find_by(id: post_id)
-    this_user = User.find_by(id: params[:current_user])
-    comment = Comment.new(user: this_user, post: current_post, **params.require(:comment).permit(:text))
+    comment = Comment.new(user: current_user, post: current_post, **params.require(:comment).permit(:text))
     respond_to do |format|
       format.html do
         if comment.save

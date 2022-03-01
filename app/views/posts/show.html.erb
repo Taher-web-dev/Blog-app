@@ -1,3 +1,6 @@
+<%= render 'flash/flash' %>
+<% user_id= params[:user_id] %>
+<% post_id= params[:id] %>
 <div class='post-description'>
   <div class='post-wrapper'>
     <div class='post-detail'>
@@ -7,4 +10,6 @@
     <p class='post-text'> <%= @post.text %> </p>
   </div>
   <%= render partial:'comment_card/comment', locals: {comments: @post.comments} %>
+  <%= link_to 'Add comment', "/users/#{user_id}/posts/#{post_id}/comments/new" %>
+  <%= button_to 'Add like',"/users/#{user_id}/posts/#{post_id}/likes/" %>
 </div>
