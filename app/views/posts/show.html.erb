@@ -12,4 +12,7 @@
   <%= render partial:'comment_card/comment', locals: {comments: @post.comments} %>
   <%= link_to 'Add comment', "/users/#{user_id}/posts/#{post_id}/comments/new" %>
   <%= button_to 'Add like',"/users/#{user_id}/posts/#{post_id}/likes/" %>
+  <% if can? :destroy, @post %>
+    <%= button_to 'Delete Post', user_post_path, method: :delete %>
+  <% end %>
 </div>

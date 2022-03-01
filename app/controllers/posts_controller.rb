@@ -38,4 +38,9 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    Post.destroy(params[:id])
+    redirect_to user_posts_path, success: 'Post deleted successfully '
+  end
 end
