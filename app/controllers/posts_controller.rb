@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     id = params[:user_id]
     data = params.require(:post).permit(:title, :text)
     new_post = Post.new(user: current_user, title: data[:title], text: data[:text])
-    #new_post = current_user.posts.new(data)
+    # new_post = current_user.posts.new(data)
     new_post.comments_counter = 0
     new_post.likes_counter = 0
     respond_to do |format|
@@ -32,12 +32,10 @@ class PostsController < ApplicationController
             redirect_to user_posts_path
           end
         else
-          redirect_to "/users/#{id}/posts/new", danger: "Post could not be saved"
+          redirect_to "/users/#{id}/posts/new", danger: 'Post could not be saved'
 
         end
       end
     end
   end
 end
-
-  

@@ -8,9 +8,9 @@ class LikesController < ApplicationController
         flash[:success] = 'New like added successfully'
         redirect_to "/users/#{user_id}/posts/#{params[:post_id]}"
       else
-        redirect_to "/users/#{user_id}/posts/#{params[:post_id]}", danger: "We could not add new like"
+        redirect_to "/users/#{user_id}/posts/#{params[:post_id]}", danger: 'We could not add new like'
       end
     end
-    
+    redirect_to "/users/#{user_id}/posts/#{params[:post_id]}", danger: 'We could not add new like'
   end
 end
