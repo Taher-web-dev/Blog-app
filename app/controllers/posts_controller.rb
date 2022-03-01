@@ -40,6 +40,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    user = User.find_by(id: params[:user_id])
+    new_post_counter = user.posts_counter - 1
+    User.update(user.id, posts_counter: new_post_counter)
     Post.destroy(params[:id])
     redirect_to user_posts_path, success: 'Post deleted successfully '
   end

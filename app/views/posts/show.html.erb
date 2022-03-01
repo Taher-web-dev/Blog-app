@@ -9,7 +9,7 @@
     </div>
     <p class='post-text'> <%= @post.text %> </p>
   </div>
-  <%= render partial:'comment_card/comment', locals: {comments: @post.comments} %>
+  <%= render partial:'comment_card/comment', locals: {comments: @post.comments, display: 'post_card'} %>
   <%= link_to 'Add comment', "/users/#{user_id}/posts/#{post_id}/comments/new" %>
   <%= button_to 'Add like',"/users/#{user_id}/posts/#{post_id}/likes/" %>
   <% if can? :destroy, @post %>

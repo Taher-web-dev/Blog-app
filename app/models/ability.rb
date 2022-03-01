@@ -30,7 +30,9 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     user ||= User.new
     can :destroy, Post , user_id: user.id
+    can :destroy, Comment, user_id: user.id
     return unless user.is? :admin
     can :destroy, Post
+    can :destroy, Comment
   end
 end
