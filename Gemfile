@@ -80,3 +80,6 @@ end
 gem 'bootstrap', '~> 5.1.3'
 
 gem 'devise'
+
+gem 'jquery-rails'
+

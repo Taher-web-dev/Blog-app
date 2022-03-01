@@ -1,3 +1,4 @@
+<%= render 'flash/flash' %>
 <div class='all-posts-user'>
   <%= render partial:'user_card/user' , locals: {user: @user} %>
   <% @posts.each_with_index do |pst, order| %>
