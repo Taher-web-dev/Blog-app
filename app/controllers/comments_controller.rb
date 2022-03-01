@@ -27,11 +27,12 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def destroy
     Comment.destroy(params[:comment_id])
     post = Post.find_by(id: params[:post_id])
     new_comments_counter = post.comments_counter - 1
     Post.update(post.id, comments_counter: new_comments_counter)
-    redirect_to user_posts_path , success: 'The comment was deleted succefully!'
+    redirect_to user_posts_path, success: 'The comment was deleted succefully!'
   end
 end
