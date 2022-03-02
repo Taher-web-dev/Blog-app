@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     id = params[:user_id]
     data = params.require(:post).permit(:title, :text)
     new_post = Post.new(user: current_user, title: data[:title], text: data[:text])
-    # new_post = current_user.posts.new(data)
     new_post.comments_counter = 0
     new_post.likes_counter = 0
     respond_to do |format|

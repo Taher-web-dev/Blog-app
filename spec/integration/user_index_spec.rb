@@ -7,7 +7,7 @@ RSpec.describe 'Login', type: :system do
       new_user.save!
     end
   end
-  it 'can see the username of all other users' do
+  it 'can test user index features' do
     unless User.find_by(email: 'example@gmail.com')
       second_user = User.new(name:'example',email:'example@gmail.com',photo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&usqp=CAU',password:'123456',password_confirmation:'123456')
       second_user.skip_confirmation!
