@@ -7,7 +7,7 @@ RSpec.describe 'Login', type: :system do
       new_user.save!
     end
   end
-  it 'can test user index features' do
+  it 'can test user show features' do
     unless User.find_by(email: 'example@gmail.com')
       second_user = User.new(name:'example',email:'example@gmail.com',photo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&usqp=CAU',password:'123456',password_confirmation:'123456',bio:"I'm a tunisian developer")
       second_user.skip_confirmation!
@@ -39,7 +39,6 @@ RSpec.describe 'Login', type: :system do
     posts = Post.where(user_id: idd)
     post_id = posts[0].id
     click_link("#{idd}")
-    sleep 8
     expect(page).to have_css("img[src*='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&usqp=CAU']")
     expect(page).to have_content("example")
     expect(page).to have_content('Number of posts: 4')
