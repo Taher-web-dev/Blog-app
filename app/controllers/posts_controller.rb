@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if new_post.save
+          new_post.update_post_counter
           flash[:success] = 'Post saved successfully'
           begin
             redirect_to "/users/#{current_user.id}/posts"
