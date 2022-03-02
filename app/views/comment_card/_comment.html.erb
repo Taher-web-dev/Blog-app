@@ -1,5 +1,11 @@
+<% display ||= 'posts' %>
 <div class='comments-list'>
   <% comments.each do |comment| %>
     <p class= 'comment-data' > <%= comment.user.name %>: <%= comment.text %> </p>
+    <% if display == 'post_card' %>
+      <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', "/users/#{params[:user_id]}/posts/#{params[:id]}/comments/destroy", method: :delete, params: { comment_id: comment.id, post_id: params[:id]} %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
