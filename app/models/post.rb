@@ -10,10 +10,6 @@ class Post < ApplicationRecord
     Comment.order(created_at: :desc).limit(5)
   end
 
-  after_save :update_post_counter
-
-  private
-
   def update_post_counter
     User.find_by(id: user_id).increment!(:posts_counter)
   end

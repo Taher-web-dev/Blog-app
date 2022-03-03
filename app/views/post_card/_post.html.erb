@@ -5,7 +5,7 @@
 <% used_text = list_text[0..threshold.to_i].join(' ') %>
 <% comments = post.comments_counter %>
 <% likes = post.likes_counter %>
-<a href='<%= link %>' class='post-link'>
+<a href='<%= link %>' class='post-link' id=<%= post.id %> >
   <div class='post-card'>
     <p class='post-order'>Post #<%= nbr %> </p>
     <p class='post-text'> <%= used_text %>...</p>
