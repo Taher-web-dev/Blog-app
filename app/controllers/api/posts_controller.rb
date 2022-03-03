@@ -3,7 +3,7 @@ require_relative '../../helpers/api/exception_handler'
 class Api::PostsController < ApplicationController
   # GET /posts
   include Api::PostsHelper
-  include ExceptionHandler
+  include Api::ExceptionHandler
   before_action :set_post, only: [:show]
   def index
     @posts = Post.all 
