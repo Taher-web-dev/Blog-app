@@ -68,13 +68,12 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  
 end
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'capybara'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'webdrivers'
 end
 
@@ -86,4 +85,4 @@ gem 'jquery-rails'
 
 gem 'cancancan', '~> 1.9'
 
-gem "webrick", "~> 1.7"
+gem 'webrick', '~> 1.7'
