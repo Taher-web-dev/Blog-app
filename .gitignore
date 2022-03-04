@@ -31,3 +31,8 @@
 /config/master.key
 
 node_modules/
+/config/credentials/test.key
+
+/config/credentials/production.key
+
+/config/credentials/development.key

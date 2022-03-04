@@ -86,3 +86,7 @@ gem 'jquery-rails'
 gem 'cancancan', '~> 1.9'
 
 gem 'webrick', '~> 1.7'
+
+gem 'lockbox', '~> 0.6.8'
+
+gem 'blind_index', '~> 2.3'

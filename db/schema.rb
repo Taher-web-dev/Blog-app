@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_01_162749) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_03_211149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,8 +61,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_162749) do
     t.date "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "role"
+    t.text "private_api_key_ciphertext"
+    t.string "private_api_key_bidx"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["private_api_key_bidx"], name: "index_users_on_private_api_key_bidx", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

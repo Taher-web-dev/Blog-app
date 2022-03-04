@@ -31,6 +31,7 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -41,3 +42,9 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<h3>API Key </h3>
+<%= form_with model: current_user, url: '/api/private_api_keys/update'  do |f| %>
+  <%= f.text_field :private_api_key, disabled: true %>
+  <%= f.submit "Generate New Key" %>
+<% end %>
