@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "hello#index"
   namespace :api do
     resources :posts, only: [:index, :show] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:index,:create]
     end
     resources :private_api_keys, only: [:update]
   end
