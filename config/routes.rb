@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show] do
       resources :comments, only: [:create]
     end
+    resources :private_api_keys, only: [:update]
   end
   resources :users, only: [:index,:show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
