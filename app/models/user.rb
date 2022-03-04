@@ -19,8 +19,10 @@ class User < ApplicationRecord
   def is?(requested_role)
     role == requested_role.to_s
   end
+
   private
+
   def set_private_api_key
-    self.private_api_key = SecureRandom.hex if self.private_api_key.nil?
+    self.private_api_key = SecureRandom.hex if private_api_key.nil?
   end
 end
