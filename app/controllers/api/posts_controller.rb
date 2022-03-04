@@ -21,4 +21,4 @@ class Api::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 end
-# "252edfa9a784bb181bb22abae945948121ebcf2a2196dd538aaf5560352004a0"
+
